@@ -26,7 +26,7 @@ cd test-web-app
 # run this rather than dotnet restore / npm install, npm install can be run but needs to be done in the ClientApp directory.
 dotnet build
 
-#set proper environment 
+#set Development environment for testing as default is Production and will not be served with a dotnet run command if not published.
 set ASPNETCORE_ENVIRONMENT=Development
 
 # run the server
