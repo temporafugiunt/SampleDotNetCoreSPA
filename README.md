@@ -15,16 +15,23 @@ If you wish to create a project and repository of your own when following the ab
 # Creating and Running a New Project
 ```
 #get lastest SPA templates
-dotnet new –install Microsoft.AspNetCore.SpaTemplates::* 
-#create a new project 
-dotnet new angular 
+dotnet new --install Microsoft.DotNet.Web.Spa.ProjectTemplates::*
 
-#restore nuget packages and NPM packages 
-dotnet restore 
-npm install 
+#create a new project, default for target framework doesn't seem to be working when .NET Core 2.1 SDK is Installed
+dotnet new angular -f netcoreapp2.0 -o test-web-app
+
+#restore nuget packages and NPM packages
+cd test-web-app
+
+# run this rather than dotnet restore / npm install
+dotnet build
 
 #set proper environment 
-setx ASPNETCORE_ENVIRONMENT "Development"
+set ASPNETCORE_ENVIRONMENT=Development
+
+# run the server
+dotnet run
+
 ```
 
 
