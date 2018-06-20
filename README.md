@@ -1,5 +1,5 @@
 # SampleDotNetCoreSPA
-This is the sample App used in the instructions of [Docker Setup](https://github.com/temporafugiunt/DockerSetupInfo) in the BuildSetup/DocNETCoreWebApps setup instructions.
+This is the sample App used in the instructions of [Docker Setup](https://github.com/temporafugiunt/DockerSetupInfo) in the BuildSetup/DotNETCoreWebApps setup instructions.
 
 ## Project Setup from Scratch
 
@@ -31,7 +31,7 @@ set ASPNETCORE_ENVIRONMENT=Development
 
 # run the server
 dotnet run
-
 ```
 
+You can now browse to http://localhost:5000 and see the default angular seed project.
 
