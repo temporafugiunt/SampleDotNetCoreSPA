@@ -23,7 +23,7 @@ dotnet new angular -f netcoreapp2.0 -o test-web-app
 #restore nuget packages and NPM packages
 cd test-web-app
 
-# run this rather than dotnet restore / npm install
+# run this rather than dotnet restore / npm install, npm install can be run but needs to be done in the ClientWebApp directory.
 dotnet build
 
 #set proper environment 
