@@ -18,8 +18,8 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css",
-        "../node_modules/bootstrap/dist/css/bootstrap.min.css"
+        "styles.scss",
+        "../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",
@@ -54,8 +54,9 @@
     }
   },
   "defaults": {
-    "styleExt": "css",
-    "component": {},
+    "styleExt": "scss",
+    "component": {
+    },
     "build": {
       "progress": true
     }
