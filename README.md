@@ -1,5 +1,5 @@
 # SampleDotNetCoreSPA
-This is the sample App used in the instructions of [Docker Setup](https://github.com/temporafugiunt/DockerSetupInfo) in the BuildSetup/DotNETCoreWebApps setup instructions.
+This is the sample App used by the [Docker Setup](https://github.com/temporafugiunt/DockerSetupInfo) repository in the BuildSetup/DotNETCoreWebApps setup instruction for setting up a Dockerized .NET Core 2.0 Web App from scratch.
 
 ## Project Setup from Scratch
 
@@ -16,6 +16,7 @@ If you wish to create a project and repository of your own when following the ab
 ```
 #get lastest SPA templates
 dotnet new --install Microsoft.DotNet.Web.Spa.ProjectTemplates::*
+npm install -g @angular/cli
 
 #create a new project, default for target framework doesn't seem to be working when .NET Core 2.1 SDK is Installed
 dotnet new angular -f netcoreapp2.0 -o test-web-app
@@ -37,4 +38,33 @@ dotnet run
 ```
 
 You can now browse to http://localhost:5000 and see the default angular seed project.
+
+# Adding SASS Support for Base Angular Project
+
+At the time of this writing, the .NET Angular Seed template does not support automatic setup of SCSS rather than straight CSS. This is a supplement to the seed project setup to also support SCSS.
+
+1. Run the following commands in the ClientApp directory of the new seed project:
+
+```
+# Set angular command line to create scss files instead of css.
+ng set defaults.styleExt scss
+# bootstrap 3 requires boostrap-sass to support scss, that is native in bootstrap 4
+npm install bootstrap-sass --save-dev
+```
+
+2. In the .angular-cli.json file change the styles configuration from this:
+
+```
+      "styles": [
+        "styles.css",
+        "../node_modules/bootstrap/dist/css/bootstrap.min.css"
+      ]
+```
+to
+```
+      "styles": [
+        "styles.scss",
+        "../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss"
+      ]
+```
 
