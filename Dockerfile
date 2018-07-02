@@ -28,9 +28,9 @@ WORKDIR /app/test-web-app-src/ClientApp
 RUN npm install
 WORKDIR /app/test-web-app-src
 RUN dotnet build
-#RUN dotnet publish -c Release -o /app/test-web-app-pub
+RUN dotnet publish -c Release -o /app/test-web-app-pub
 
-#FROM microsoft/dotnet:2.1-aspnetcore-runtime AS runtime
-#WORKDIR /app
-#COPY --from=build /app/aspnetapp/out ./
-#ENTRYPOINT ["dotnet", "aspnetapp.dll"]
+FROM microsoft/dotnet:2.1-aspnetcore-runtime AS runtime
+WORKDIR /app
+COPY --from=build /app/test-web-app-pub ./
+ENTRYPOINT ["dotnet", "test-web-app.dll"]
