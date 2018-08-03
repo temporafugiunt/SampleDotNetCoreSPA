@@ -9,7 +9,7 @@ If you wish to create a project and repository of your own when following the ab
 | Tool                               | URL                                              |
 | ---------------------------------- | ------------------------------------------------ |
 | Git for Windows                    | https://git-scm.com/download/win                 |
-| Install Latest .NET Core SDK       | https://www.microsoft.com/net/download/windows   |
+| Install Latest .NET Core 2.1 SDK   | https://www.microsoft.com/net/download/windows   |
 | Install Latest LTS Version of Node | https://nodejs.org/en/                           |
 
 # Creating and Running a New Project
@@ -17,9 +17,10 @@ If you wish to create a project and repository of your own when following the ab
 #get lastest SPA templates
 dotnet new --install Microsoft.DotNet.Web.Spa.ProjectTemplates::*
 npm install -g @angular/cli
+npm install -g typescript
 
 #create a new project, default for target framework doesn't seem to be working when .NET Core 2.1 SDK is Installed
-dotnet new angular -f netcoreapp2.0 -o test-web-app
+dotnet new angular -f netcoreapp2.1 -o test-web-app
 
 #restore nuget packages and NPM packages
 cd test-web-app
@@ -46,10 +47,13 @@ At the time of this writing, the .NET Angular Seed template does not support aut
 1. Run the following commands in the ClientApp directory of the new seed project:
 
 ```
+# bootstrap 3 requires boostrap-sass to support scss, that is native in bootstrap 4 but that requires jquery and popper.js
+npm install bootstrap@latest --save-dev
+npm install jquery@latest --save
+npm install popper.js@latest --save
+
 # Set angular command line to create scss files instead of css.
 ng set defaults.styleExt scss
-# bootstrap 3 requires boostrap-sass to support scss, that is native in bootstrap 4
-npm install bootstrap-sass --save-dev
 ```
 
 2. In the .angular-cli.json file change the styles configuration from this:
@@ -64,7 +68,12 @@ to
 ```
       "styles": [
         "styles.scss",
-        "../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss"
+        "../node_modules/bootstrap/scss/bootstrap.scss"
       ]
 ```
+3. All references in ts files to css files should be renames to scss files and all css files should be renamed to scss.
 
+Keep in mind that navebars between bootstrap 3 and bootstrap 4 changed so the seed project's navbar will be broken.
+
+# Upgrading to Angular 6
+The angular CLI and angular core projects in the .NET Seed project as of this writing were 
