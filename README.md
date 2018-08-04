@@ -86,5 +86,11 @@ npm install @angular/cli@latest --save-dev
 ng update @angular/cli
 # This will update Core Angular components
 ng update @angular/core
-ng update @nguniversal/module-map-ngfactory-loader 
+ng update @nguniversal/module-map-ngfactory-loader
+```
+
+Update other package peer dependencies:
+
+```
+npm install codelyzer@latest --save-dev
 ```
