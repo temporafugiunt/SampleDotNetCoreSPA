@@ -1,5 +1,5 @@
 # SampleDotNetCoreSPA
-This is the sample App used by the [Docker Setup](https://github.com/temporafugiunt/DockerSetupInfo) repository in the BuildSetup/DotNETCoreWebApps setup instruction for setting up a Dockerized .NET Core 2.0 Web App from scratch.
+This is the sample App used by the [Docker Setup](https://github.com/temporafugiunt/DockerSetupInfo) repository in the BuildSetup/DotNETCoreWebApps setup instruction for setting up a Dockerized .NET Core 2.1 Web App from scratch.
 
 ## Project Setup from Scratch
 
@@ -48,7 +48,7 @@ At the time of this writing, the .NET Angular Seed template does not support aut
 
 ```
 # bootstrap 3 requires boostrap-sass to support scss, that is native in bootstrap 4 but that requires jquery and popper.js
-npm install bootstrap@latest --save-dev
+npm install bootstrap@latest --save
 npm install jquery@latest --save
 npm install popper.js@latest --save
 
@@ -76,4 +76,15 @@ to
 Keep in mind that navebars between bootstrap 3 and bootstrap 4 changed so the seed project's navbar will be broken.
 
 # Upgrading to Angular 6
-The angular CLI and angular core projects in the .NET Seed project as of this writing were 
+The angular CLI and angular core projects in the .NET Seed project as of this writing were 1.7 and 5.2, both should be updated to the latest version of Angular which is version 6.1.X as of this writing. All of the below commands should still be executed in the ClientApp directory.
+
+```
+#Upgrade the command line first.
+npm install @angular/cli@latest --save-dev  
+
+# Running this command will update the angular-cli.json file to angular.json and update several other files as well to newer settings. 
+ng update @angular/cli
+# This will update Core Angular components
+ng update @angular/core
+ng update @nguniversal/module-map-ngfactory-loader 
+```
